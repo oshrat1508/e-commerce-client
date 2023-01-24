@@ -10,7 +10,7 @@ const user =  JSON.parse(localStorage.getItem(("user"))).data
 
     const findUserOrders = async() =>{
             const {data} = await axios.get('http://localhost:8000/order')
-            const filterd = data.filter(order => order.user.userId === user._id) || undefined
+            const filterd = data.filter(order => order.user?.userId === user._id) || undefined
             setMyOrders(filterd);
             const {data:product} = await axios.get('http://localhost:8000/product')
             setAllProduct(product)
@@ -19,6 +19,7 @@ const user =  JSON.parse(localStorage.getItem(("user"))).data
     }
 console.log(user._id);
 console.log(myOrders[0]?.product[0] );
+
     useEffect(() => {
       findUserOrders()
     }, [])
