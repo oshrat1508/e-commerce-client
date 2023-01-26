@@ -1,6 +1,6 @@
 import React ,{useState}from 'react'
 import bcrypt from "bcryptjs-react";
-import { usersUpdate ,users } from '../../api/api';
+import { usersUpdate ,users } from '../../api/userApi';
 
 export default function ChangePWD() {
     const user = JSON.parse(localStorage.getItem(("user"))).data

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getStores } from "../ApiCalls/Store";
+import { getStores } from "../../api/Store";
 import { useNavigate } from "react-router-dom";
 import StoreComp from "../Admin/StoreComp";
 import Nav from '../Navs/MainNav';

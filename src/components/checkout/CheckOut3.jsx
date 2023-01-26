@@ -6,12 +6,14 @@ import { HiCreditCard } from "react-icons/hi";
 import PaypalCheckOutButton from "./PaypalCheckOutButton";
 import AddCard from "./AddCard";
 import { useEffect } from "react";
+import { ClearCart } from "../../Redux/action/cartActions";
+import { useDispatch } from "react-redux";
 
 export default function CheckOut3({ setOrder, order }) {
   const user = JSON?.parse(localStorage?.getItem("user"))?.data;
   const [addCard, setAddCard] = useState(false);
   const [useSaveCard, setUseSaveCard] = useState(false);
-
+const dispatch= useDispatch()
   const [payment, setPayment] = useState([]);
   useEffect(() => {
     setPayment([
@@ -188,6 +190,7 @@ export default function CheckOut3({ setOrder, order }) {
               alert("מלא את כל השדות");
               console.log(order);
             }
+          dispatch({type: "CLEAR_CART" })
           }}
           className="bg-cyan-600 rounded-md text-white py-4 px-8  m-1 w-full"
         >

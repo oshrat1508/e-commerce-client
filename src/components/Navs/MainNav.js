@@ -11,7 +11,7 @@ import $ from "jquery";
 const MainNav = ()=> {
   const user = JSON.parse(localStorage.getItem("user"))?.data;
   const state = useSelector((state) => state.CartReducer);
-
+console.log(state);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   function navigateTo (route) {
@@ -20,7 +20,8 @@ const MainNav = ()=> {
   return (
     <nav className="shadow-md w-full top-0 left-0 bg-white ">
       <div className="  container mx-auto flex items-center  justify-between py-4 md:px-40 px-7">
-        <div className=" text-4xl cursor-pointer flex items-center font-[poppins text-grey-600]">
+        <div className="flex "> 
+        <div className=" text-4xl mr-3 cursor-pointer flex items-center font-[poppins text-grey-600]">
           <span className="md:flex md:items-center">
             <CiBrightnessDown />
           </span>
@@ -30,7 +31,7 @@ const MainNav = ()=> {
         onClick={()=>{
           navigate("/checkout")
         }}
-         className="flex items-center ml-3 md:my-0 text-l">
+         className="flex items-center md:my-0 text-l">
           <Link to="/cart" >
           <span className="flex items-center text-xl px-1">
             <IoIosCart />
@@ -38,7 +39,7 @@ const MainNav = ()=> {
             
           </span>
           </Link>
-        </li> 
+        </li> </div>
         <div
           onClick={() => setOpen(!open)}
 
@@ -86,9 +87,9 @@ const MainNav = ()=> {
                 className="w-[50px]  h-[50px] flex justify-center items-center  border-2 rounded-full  bg-white"
               >
                 {user?.profileImg ? (
-                  <img src={user.profileImg} alt="" />
+                  <img className="cursor-pointer" src={user.profileImg} alt="" />
                 ) : (
-                  <div className="text-2xl">{user?.email}</div>
+                  <div className="text-2xl cursor-pointer">{user?.email[0].toUpperCase()}</div>
                 )}
               </div>
             </span>

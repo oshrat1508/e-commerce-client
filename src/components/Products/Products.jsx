@@ -73,25 +73,19 @@ export default function Products({inputSearch,setProdactLength , storeName}) {
                     alt="Shoes"
                   />
                   <button>למוצר</button>
-                  <h2 className="font-bold text-center py-8">
+                  <div className=" w-full text-center py-2 ">
+                    <button
+                        onClick={() => addItem(product)}
+                        className=" rounded-lg bg-slate-800 text-white px-2 py-1"
+                      > הוסף לעגלה
+                    </button>
+                    
+                  </div>
+                  <h2 className="font-bold text-center py-2">
                     {product.name}
                   </h2>
                   <p className="text-gray text-end">{product.description}</p>
-                  <div className="flex w-full ">
-                    <button>
-                      <FiPlusCircle
-                        onClick={() => addItem(product)}
-                        className="hover:bg-sky-500 hover:ring-sky-500 rounded-lg hover:text-white"
-                      />
-                    </button>
-                    <p>{product.qty}</p>
-                    <button>
-                      <FiMinusCircle
-                        onClick={() => handleDecresment(product)}
-                        className="hover:bg-sky-500 hover:ring-sky-500 rounded-lg hover:text-white"
-                      />
-                    </button>
-                  </div>
+                  
                   <p className="text-end">סה"כ: {product.price} ש'ח</p>
                 </div>
               );

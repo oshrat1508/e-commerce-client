@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate} from "react-router-dom";
 import ProductComp from "./ProductComp";
 import { getProducts } from "./ApiCalls/products";
-import { getStores } from "../ApiCalls/Store";
+import { getStores } from "../../api/Store";
 
 const ProductsScreen = () => {
   const [products, setProducts] = useState([]);

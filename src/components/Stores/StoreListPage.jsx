@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
-import { allStores } from "../../api/api";
+import { allStores } from "../../api/userApi";
 import { useNavigate, useParams } from "react-router-dom";
 import StoreComp from "./StoreComp";
 import HeaderStore from ".//HeaderStore";
-import {getDepartment} from '../ApiCalls/Departments'
+import {getDepartment} from '../../api/Departments'
 import MainNav from "../Navs/MainNav";
 import MainPageFooter from "../Footers/MainPageFooter";
 import CartStore from "../Cart/CartStore";

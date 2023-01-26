@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { createStore, getStores } from "../ApiCalls/Store";
+import { createStore, getStores } from "../../api/Store";
 import FileBase64 from "react-file-base64";
 
 export default function CreateStore() {

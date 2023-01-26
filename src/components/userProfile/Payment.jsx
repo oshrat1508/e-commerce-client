@@ -1,5 +1,5 @@
 import React from 'react'
-import { usersUpdate } from '../../api/api'
+import { usersUpdate } from '../../api/userApi'
 
 export default function Payment() {
 

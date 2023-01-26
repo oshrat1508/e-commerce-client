@@ -3,7 +3,7 @@ import { MdCancel } from "react-icons/md";
 import { MdDoneAll } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { usersUpdate, users } from "../../api/api";
+import { usersUpdate, users } from "../../api/userApi";
 
 export default function AddCard({ payment, setPayment, order }) {
   const selctor = useSelector((state) => state.orderReducer);

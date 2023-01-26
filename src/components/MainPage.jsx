@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DepartmentComp from "./Admin/DepartmentComp";
-import { getDepartments } from "./ApiCalls/Departments";
+import { getDepartments } from "../api/Departments";
 import BeatLoader from "react-spinners/BeatLoader";
 
 export default function MainPage() {

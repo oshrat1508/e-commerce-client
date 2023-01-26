@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getDepartments } from "../ApiCalls/Departments";
+import { getDepartments } from "../../api/Departments";
 import { useNavigate } from "react-router-dom";
 import DepartmentComp from "./DepartmentComp";
 

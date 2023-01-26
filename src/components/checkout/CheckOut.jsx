@@ -94,7 +94,6 @@ export default function CheckOut() {
 
   }, [useSelector]);
 
-  console.log(activeUser);
   return (
     <div className="bg-slate-200">
       <div className="md:w-3/4 w-full m-auto bg-white text-right flex md:flex-row flex-col items-start justify-start">

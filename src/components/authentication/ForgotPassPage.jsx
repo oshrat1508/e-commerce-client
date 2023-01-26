@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useParams ,Link} from 'react-router-dom'
-import { forgotPassword , usersUpdate ,users} from '../../api/api'
+import { forgotPassword , usersUpdate ,users} from '../../api/userApi'
 import{CiLock} from 'react-icons/ci'
 import{AiFillEye} from 'react-icons/ai'
 export default function ForgotPassPage() {

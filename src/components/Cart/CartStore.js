@@ -8,6 +8,7 @@ const CartStore = () => {
   const state = useSelector((state) => state.CartReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+ console.log(state);
 
   const handleIncresment = (productId) => {
     dispatch(IncreaseQty(productId));
@@ -25,7 +26,6 @@ const CartStore = () => {
     });
     return total;
   };
-
   return (
     <div className="w-full border border-gray p-2 md:my-10">
       <div className="bg-black text-white text-center p-4">
@@ -43,7 +43,7 @@ const CartStore = () => {
           />
         </div> */}
       </div>
-      {state.map((product) => {
+       {state.map((product) => {
         return (
           <div className="w-full ">
             <div className="flex p-2 justify-between">
@@ -80,7 +80,7 @@ const CartStore = () => {
             
           </div>
         );
-      })}
+      })} 
       <hr />
       <div className="p-2">
         <div className="flex justify-between">

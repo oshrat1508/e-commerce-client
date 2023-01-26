@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { usersUpdate, users } from "../../api/api";
+import { usersUpdate, users } from "../../api/userApi";
 import FileBase64 from "react-file-base64";
 
 export default function PersonalInfo() {

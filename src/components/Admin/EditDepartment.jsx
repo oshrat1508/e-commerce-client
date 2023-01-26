@@ -3,7 +3,7 @@ import {
   editDepartment,
   getDepartment,
   deleteDepartment,
-} from "../ApiCalls/Departments";
+} from "../../api/Departments";
 import { useParams } from "react-router-dom";
 import FileBase64 from "react-file-base64";
 

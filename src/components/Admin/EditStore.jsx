@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { editStore, getStore, deleteStore } from "../ApiCalls/Store";
+import { editStore, getStore, deleteStore } from "../../api/Store";
 import { useParams } from "react-router-dom";
 import FileBase64 from "react-file-base64";
 
