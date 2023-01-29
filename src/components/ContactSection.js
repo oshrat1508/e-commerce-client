@@ -10,7 +10,7 @@ const ContactSection = () => {
   const sendMail = async(e)=>{
   e.preventDefault()
 
-    const {data:send} = await axios.post('http://localhost:8000/contact-us' , data)
+    const {data:send} = await axios.post('https://e-commerce-server-019n.onrender.com/contact-us' , data)
   }
 
 
