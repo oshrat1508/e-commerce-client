@@ -35,7 +35,7 @@ export default function Auth() {
 
   const responseFacebook = async (response) => {
     console.log(response);
-    const { data } = await axios.post("http://localhost:8000/facebooklogin", {
+    const { data } = await axios.post("/facebooklogin", {
       accessToken: response.accessToken,
       userID: response.userID,
     });
@@ -49,7 +49,7 @@ export default function Auth() {
  
   const responseGoogleSuccess = async (response) => {
     console.log(response);
-    const { data } = await axios.post("http://localhost:8000/googlelogin", {
+    const { data } = await axios.post("/googlelogin", {
       tokenId: response.tokenId,
     }); 
     // const data = user.user

@@ -9,11 +9,11 @@ console.log(myOrders);
 const user =  JSON.parse(localStorage.getItem(("user"))).data
 
     const findUserOrders = async() =>{
-            const {data} = await axios.get('http://localhost:8000/order')
+            const {data} = await axios.get('https://e-commerce-server-019n.onrender.com/order')
             const filterd = data.filter(order => order.user?.userId === user._id) || undefined
             console.log(data);
             setMyOrders(filterd);
-            const {data:product} = await axios.get('http://localhost:8000/product')
+            const {data:product} = await axios.get('https://e-commerce-server-019n.onrender.com/product')
             setAllProduct(product)
 
     }
