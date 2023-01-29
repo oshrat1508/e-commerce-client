@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {FiEdit} from "react-icons/fi";
 import {BsTrash} from "react-icons/bs";
-import { deleteProduct } from "./ApiCalls/products";
+import { deleteProduct } from "../../api/products";
 
 const ProductComp = (props) => {
   const { product } = props;

@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { FiPlusCircle, FiMinusCircle } from "react-icons/fi";
 import ProductPopUp from "./ProductPopUp";
-import { getProducts } from "../Manager/ApiCalls/products";
+import { getProducts } from "../../api/products";
 import { AddProduct, ReduceQty } from "../../Redux/action/cartActions";
 import { useDispatch, useSelector } from "react-redux";
 export default function Products({ inputSearch, setProdactLength, storeName }) {

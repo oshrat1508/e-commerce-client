@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { deleteProduct, editProduct, getProduct } from "./ApiCalls/products";
+import { deleteProduct, editProduct, getProduct } from "../../api/products";
 import FileBase64 from "react-file-base64";
 import Nav from "../Navs/MainNav";
 import MainPageFooter from "../Footers/MainPageFooter";
