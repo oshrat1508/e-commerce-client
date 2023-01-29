@@ -46,7 +46,7 @@ function App() {
 
 
 
-      <div>
+      <div className="">
         <Routes>
          <Route path="/Auth" element={<Auth />} />
           <Route path="/" element={<MainPage />} />

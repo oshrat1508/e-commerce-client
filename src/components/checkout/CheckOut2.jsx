@@ -30,8 +30,8 @@ useEffect(()=>{
   return (
     <>
       {dropDwon ? (
-        <div className="w-full p-5 flex flex-col items-end justify-between bg-white my-1 border-b-4">
-          <div className="w-full flex items-end justify-between bg-white my-1">
+        <div className="w-full p-5 flex flex-col items-start justify-between bg-white my-1 border-b-4">
+          <div className="w-full flex items-start justify-between bg-white my-1">
             <BsChevronDown
               className="md:text-3xl text-2xl"
               onClick={() => {
@@ -48,27 +48,27 @@ useEffect(()=>{
               }}
             />
             <div className="flex items-center">
-              <h1 className="font-medium text-2xl">זמן משלוח</h1>
+              <h1 className="font-medium text-2xl">Delivery Time</h1>
               <span>
-                <BsFillClockFill className="text-cyan-600 text-4xl ml-4 p-1" />
+                <BsFillClockFill className="text-pink-300 text-4xl ml-4 p-1" />
               </span>
             </div>
           </div>
           <div className="md:mr-12 mr-10">
             <span> {order.shipping.shippingType} </span>
-            יגיע ב-
+            Will arrive on
             <span> {order.shipping.date} </span>
-            בין השעות
+            between the hours
             <span> {order.shipping.time}</span>
           </div>
         </div>
       ) : (
-        <div className="w-full min-h-screen p-5 flex flex-col items-end justify-between bg-white my-1">
+        <div className="w-full min-h-screen p-5 flex flex-col items-start justify-between bg-white my-1">
           <div className="flex items-center">
-            <h1 className="text-2xl font-medium items-center">זמן משלוח</h1>
-            <BsFillClockFill className="text-cyan-600 text-3xl ml-4" />
+            <h1 className="text-2xl font-medium items-center">delivery Time</h1>
+            <BsFillClockFill className="text-pink-300 text-3xl ml-4" />
           </div>
-          <p>בחר שעה למשלוח בחר שעה למשלוח בחר שעה למשלוח</p>
+          <p>Select A Shipping Address</p>
           <button
             onClick={() => {
               if (order.addres.allData) {
@@ -76,15 +76,15 @@ useEffect(()=>{
                 setDropDwon(!dropDwon);
                 console.log(selctorOrder);
               } else {
-                alert("מלא בבקשה את כתובת המשלוח");
+                alert("Fill in all the fields");
               }
             }}
             // name=""
-            className="w-fit flex items-center rounded-lg hover:border-cyan-600 border-2 p-1"
+            className="w-fit flex items-center rounded-lg hover:border-pintext-pink-300 border-2 p-1"
           >
-            <p className="mx-3">משלוח אקספרס - מגיע לביתך תורך שעה</p>
-            <BsFillClockFill className="text-red-700 " />
-            <BsTextLeft className="text-red-700 " />
+            <p className="mx-3">Express Delivery - will arrive at your home within an hour</p>
+            <BsFillClockFill className="text-gray-500 " />
+            <BsTextLeft className="text-gray-500 " />
           </button>
           <div className="flex w-full justify-between">
             <ChoseDate

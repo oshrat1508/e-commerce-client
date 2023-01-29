@@ -27,14 +27,14 @@ const dispatch= useDispatch()
 
   const navigetor = useNavigate();
   return (
-    <div className="w-full min-h-screen p-10 flex flex-col items-end justify-between bg-white my-4">
-      <div className="flex items-end">
-        <h1 className="font-medium text-2xl">פרטי תשלום</h1>
-        <HiCreditCard className="text-cyan-600 text-4xl ml-4" />
+    <div className="w-full min-h-screen p-10 flex flex-col items-start text-left justify-between bg-white my-4">
+      <div className="flex items-start text-left">
+        <h1 className="font-medium text-2xl">Payment details</h1>
+        <HiCreditCard className="text-pink-100 text-4xl ml-4" />
       </div>
       {user?.saveCards ? (
         <div>
-          <p className="my-8 font-medium">בחר אמצעי תשלום:</p>
+          <p className="my-8 font-medium">Choose a payment method:</p>
           {payment?.map((v, i) => {
             return (
               <div key={i} className="flex items-center">
@@ -70,9 +70,9 @@ const dispatch= useDispatch()
       )}
 
       {useSaveCard == false  ? (
-        <div className="w-3/4 h-1/2 flex flex-col justify-between items-end">
+        <div className="w-3/4 h-1/2 flex flex-col justify-between items-start text-left">
           <div className="w-full">
-            <h3>מספר כרטיס</h3>
+            <h3>Credit card number</h3>
             <input
               onChange={(e) => {
                 setOrder({
@@ -86,11 +86,11 @@ const dispatch= useDispatch()
               type="tel"
               placeholder="3434 3434 3434 3434"
               maxLength={"19"}
-              className="border-b placeholder:text-right outline-none p-3 w-fit text-right"
+              className="border-b placeholder:text-left outline-none py-3 w-fit text-left"
             />
           </div>
           <div className="w-full">
-            <h3>תוקף</h3>
+            <h3>validity</h3>
             <input
               onChange={(e) => {
                 setOrder({
@@ -105,11 +105,11 @@ const dispatch= useDispatch()
               type="tel"
               placeholder="34/02"
               maxLength={"5"}
-              className=" border-b placeholder:text-right outline-none p-2 my-1 w-16 text-right"
+              className=" border-b placeholder:text-left outline-none py-2 my-1 w-16 text-left"
             />
           </div>
           <div className="w-full">
-            <h3>3 ספרות מאחורי הכרטיס CW</h3>
+            <h3>Last 3 digits on the card</h3>
             <input
               onChange={(e) => {
                 setOrder({
@@ -125,7 +125,7 @@ const dispatch= useDispatch()
               type="tel"
               placeholder="321"
               maxLength={"3"}
-              className="border-b placeholder:text-right outline-none p-2 my-1 w-16 text-right"
+              className="border-b placeholder:text-left outline-none py-2 my-1 w-16 text-left"
             />
           </div>
         </div>
@@ -135,9 +135,9 @@ const dispatch= useDispatch()
             setUseSaveCard(!useSaveCard);
             window.location.reload();
           }}
-          className="text-cyan-600"
+          className="text-pink-100 bg-black"
         >
-          לתשלום רגיל לחצן כאן
+        For Payment Click Here
         </button>
       )}
       {addCard ? (
@@ -150,7 +150,7 @@ const dispatch= useDispatch()
       ) : (
         ""
       )}
-      <div className="flex flex-col w-full items-end">
+      <div className="flex flex-col w-full items-start text-left">
         <button
           onClick={async () => {
             if (
@@ -187,14 +187,14 @@ const dispatch= useDispatch()
               await axios.post("http://localhost:8000/order", order);
               console.log(order);
             } else {
-              alert("מלא את כל השדות");
+              alert("Fill in all the fields");
               console.log(order);
             }
           dispatch({type: "CLEAR_CART" })
           }}
-          className="bg-cyan-600 rounded-md text-white py-4 px-8  m-1 w-full"
+          className="bg-pink-100 rounded-md text-gray-500 font-bold py-4 px-8  m-1 w-full"
         >
-          אישור קנייה
+         Purchase confirmation
         </button>
         <PaypalCheckOutButton />
       </div>

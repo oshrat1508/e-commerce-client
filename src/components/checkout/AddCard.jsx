@@ -9,21 +9,22 @@ export default function AddCard({ payment, setPayment, order }) {
   const selctor = useSelector((state) => state.orderReducer);
   const user = JSON.parse(localStorage?.getItem("user"))?.data;
   const navigetor = useNavigate();
-  
 
   return (
     <div className="w-full h-screen bg-black bg-opacity-70 z-20 fixed top-0 right-0 flex items-center justify-center">
-      <div className="bg-white border-cyan-600 border-4 h-1/4 w-3/5 rounded-lg flex flex-col items-center justify-evenly">
-        <p className="text-3xl text-right"> מעונין לשמור פרטי כרטיס אשראי?</p>
+      <div className="bg-white border-pintext-pink-300 border-4 h-1/4 w-3/5 rounded-lg flex flex-col items-center justify-evenly">
+        <p className="text-3xl text-right">
+          Would you like to save your credit card details?
+        </p>
         <div className="flex w-1/2 justify-between">
           <button
             onClick={() => {
               navigetor("/ThanksPage");
             }}
-            className="flex items-center text-2xl text-cyan-600"
+            className="flex items-center text-2xl text-pink-300"
           >
             <MdCancel />
-            <span>לא</span>
+            <span>No</span>
           </button>
           <button
             onClick={async () => {
@@ -49,10 +50,10 @@ export default function AddCard({ payment, setPayment, order }) {
                 alert("התחבר/הרשם בבקשה");
               }
             }}
-            className="flex items-center text-2xl text-cyan-600"
+            className="flex items-center text-2xl text-pink-300"
           >
             <MdDoneAll />
-            <span>כן</span>
+            <span>Yes</span>
           </button>
         </div>
       </div>

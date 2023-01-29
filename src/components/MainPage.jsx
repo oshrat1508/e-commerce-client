@@ -7,9 +7,9 @@ import BeatLoader from "react-spinners/BeatLoader";
 export default function MainPage() {
   const navigate = useNavigate();
 
-    const [Departments, setDepartments] = useState();
-    const [inputSearch, setinputSearch] = useState([]);
-   
+  const [Departments, setDepartments] = useState();
+  const [inputSearch, setinputSearch] = useState([]);
+
   useEffect(() => {
     alldepartments();
   }, [inputSearch]);
@@ -21,33 +21,29 @@ export default function MainPage() {
     console.log(data);
   };
 
-
-console.log(Departments);
-console.log(inputSearch);
-
-  
-      
+  console.log(Departments);
+  console.log(inputSearch);
 
   return (
     <div className="flex justify-center p-8">
-      <div className="w-2/3 flex flex-col	">
-        <p className="text-4xl m-6 text-center ">ברוך הבא לעולם החנויות שלך</p>
+      <div className="w-4/5 flex flex-col justify-center items-center">
+        <p className="text-4xl my-20 text-center text-gray-400 font-bold">
+          Welcome To Our Website !
+        </p>
         <input
           onChange={(e) => setinputSearch(e.target.value)}
-          className="m-6 h-12 border-current	 border-2 border-solid"
+          className="mb-20 p-8 outline-none font-bold placeholder:text-pink-300 m-6 w-1/2 h-12 border-current border-4 border-solid border-gray-200 placeholder:text-center text-center rounded-md"
           type="text"
-          placeholder="מה תרצה לחפש?"
+          placeholder="What would you like to search for?"
         />
-        <p className="text-xl text-center m-6">מחלקות שונות</p>
+        {/* <p className="text-3xl text-center my-12 text-pink-300">Our Category</p> */}
 
         {Departments ? (
-          <div className=" flex flex-wrap justify-evenly">
+          <div className="flex flex-wrap">
             {Departments?.filter((dep) => {
               if (inputSearch === "") {
                 return dep;
-              } else if (
-                dep.name.includes(inputSearch)
-              ) {
+              } else if (dep.name.includes(inputSearch)) {
                 return dep;
               }
             }).map((dep) => (

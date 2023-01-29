@@ -63,7 +63,7 @@ export default function ChoseTime({ setOrder, order, callback }) {
               id={v.value}
               name="time"
               value={v.value}
-              className="w-6 h-6 accent-cyan-600 "
+              className="w-6 h-6 accent-gray-500 "
             />
             <label htmlFor={v.value}>{v.value}</label>
           </div>
@@ -77,7 +77,7 @@ export default function ChoseTime({ setOrder, order, callback }) {
             }}
             className="flex items-center flex-row-reverse font-medium"
           >
-            שעות נוספות <BsChevronDown />
+            More hours <BsChevronDown />
           </button>
         </div>
         <div className="flex justify-center items-center">
@@ -94,12 +94,12 @@ export default function ChoseTime({ setOrder, order, callback }) {
                 });
                 dispatch({ type: "UPDATEORDER", payload: order });
               } else {
-                alert("מלא את כל השדות");
+                alert("Fill in all the fields");
               }
             }}
-            className="bg-gray-200 text-cyan-600 border-2 border-cyan-600 font-bold rounded-md  px-10 py-3"
+            className="bg-pink-100 text-gray-500 border-2 border-gray-500 font-bold rounded-md  px-10 py-3"
           >
-            שמור
+            Save
           </button>
         </div>
       </div>

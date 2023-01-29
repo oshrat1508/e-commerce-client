@@ -5,7 +5,7 @@ import ProductPopUp from "./ProductPopUp";
 import { getProducts } from "../Manager/ApiCalls/products";
 import { AddProduct, ReduceQty } from "../../Redux/action/cartActions";
 import { useDispatch, useSelector } from "react-redux";
-export default function Products({inputSearch,setProdactLength , storeName}) {
+export default function Products({ inputSearch, setProdactLength, storeName }) {
   const [popUpProduct, setPopUpProduct] = useState([]);
   const [popUp, setPopUp] = useState(false);
   const [products, setProducts] = useState([]);
@@ -15,8 +15,8 @@ export default function Products({inputSearch,setProdactLength , storeName}) {
   const state = useSelector((state) => state.CartReducer);
   console.log(state);
   const allProduct = async () => {
-    const { data:products } = await getProducts();
-    const data = products.filter(product => product.brand === storeName)
+    const { data: products } = await getProducts();
+    const data = products.filter((product) => product.brand === storeName);
     const productsObj = data.map((product) => {
       return { ...product, qty: qty };
     });
@@ -58,11 +58,11 @@ export default function Products({inputSearch,setProdactLength , storeName}) {
                 return product;
               }
             })
-          .map((product , key) => {
+            .map((product, key) => {
               return (
                 <div
                   key={key}
-                  className="md:w-[30%] w-full flex flex-col justify-around border-white border-2 p-2 items-center my-4 rounded-md hover:scale-105 duration-300 hover:shadow-md hover:shadow-black"
+                  className="md:w-[30%] w-full flex flex-col justify-start border-white border-2 p-2 items-center my-4 rounded-md hover:scale-105 duration-300 hover:shadow-md hover:shadow-black"
                 >
                   <img
                     id={product._id}
@@ -72,21 +72,20 @@ export default function Products({inputSearch,setProdactLength , storeName}) {
                     src={product.image}
                     alt="Shoes"
                   />
-                  <button>למוצר</button>
+                  <button className="text-pink-300 font-bold my-4">Click For More</button>
                   <div className=" w-full text-center py-2 ">
                     <button
-                        onClick={() => addItem(product)}
-                        className=" rounded-lg bg-slate-800 text-white px-2 py-1"
-                      > הוסף לעגלה
+                      onClick={() => addItem(product)}
+                      className="w-full capitalize rounded-lg bg-gray-400 text-white px-2 py-1"
+                    >
+                      {" "}
+                      add to cart
                     </button>
-                    
                   </div>
-                  <h2 className="font-bold text-center py-2">
-                    {product.name}
-                  </h2>
+                  <h2 className="font-bold text-center py-2">{product.name}</h2>
                   <p className="text-gray text-end">{product.description}</p>
-                  
-                  <p className="text-end">סה"כ: {product.price} ש'ח</p>
+
+                  <p className="text-end">Total : {product.price} $</p>
                 </div>
               );
             })}
@@ -100,12 +99,3 @@ export default function Products({inputSearch,setProdactLength , storeName}) {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-

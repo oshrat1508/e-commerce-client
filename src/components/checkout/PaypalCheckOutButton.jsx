@@ -54,7 +54,7 @@ export default function PaypalCheckOutButton() {
         console.error("paypal checout on error", err);
       }}
       style={{
-        color: "white",
+        color: "black",
         layout: "horizontal",
         tagline: false,
         shape: "rect",

@@ -6,11 +6,11 @@ import { BsChevronDown } from "react-icons/bs";
 export default function CheckOut1({ setOrder, order }) {
   const [dropDwon, setDropDwon] = useState(false);
   const inputs = [
-    { value: "עיר", valueEnglish: "city" },
-    { value: "רחוב", valueEnglish: "street" },
-    { value: "מספר", valueEnglish: "number" },
-    { value: "מיקוד", valueEnglish: "postalCode" },
-    { value: "שם חברה", valueEnglish: "shippingCompanyName" },
+    { value: "City", valueEnglish: "city" },
+    { value: "Street", valueEnglish: "street" },
+    { value: "Number", valueEnglish: "number" },
+    { value: "Postal Code", valueEnglish: "postalCode" },
+    { value: "Shipping Company Name", valueEnglish: "shippingCompanyName" },
   ];
   const handleInput = (e) => {
     setOrder({
@@ -22,48 +22,48 @@ export default function CheckOut1({ setOrder, order }) {
   return (
     <>
       {dropDwon ? (
-        <div className="w-full p-5 flex flex-col items-end justify-between bg-white my-1 border-b-4">
-          <div className="w-full flex items-end justify-between bg-white my-1">
+        <div className="w-full p-5 flex flex-col items-start justify-between bg-white my-1 border-b-4">
+          <div className="w-full flex items-start justify-between bg-white my-1">
             <BsChevronDown
               className="md:text-3xl text-2xl"
               onClick={() => setDropDwon(!dropDwon)}
             />
             <div className="flex items-center">
-              <h1 className="font-medium text-2xl">הוסף כתובת למשלוח</h1>
+              <h1 className="font-medium text-2xl">Add Shipping Address</h1>
               <span>
-                <MdPlace className="text-cyan-600 text-4xl ml-4" />
+                <MdPlace className="text-pink-300 text-4xl ml-4" />
               </span>
             </div>
           </div>
           <div className="md:mr-12 mr-10">
-            כתובת:
+          Delivery Details:
             <span> {order.addres.city} </span>
             <span> {order.addres.street} </span>
             <span> {order.addres.number} </span>
-            <span> {order.addres.postalCode} </span>, שם חברה/לקוח:
+            <span> {order.addres.postalCode} </span>, Client/Company name:
             <span> {order.addres.shippingCompanyName} </span>
           </div>
         </div>
       ) : (
-        <div className="w-full  min-h-screen p-10 flex flex-col items-end justify-evenly bg-white my-1">
-          <div className="flex items-center">
-            <h1 className="font-medium text-2xl">פרטי משלוח</h1>
+        <div className="w-full  min-h-screen p-10 flex flex-col items-start justify-evenly bg-white my-1">
+          <div className="flex">
+            <h1 className="font-medium text-2xl">Delivery Details</h1>
             <span>
-              <MdPlace className="text-cyan-600 text-5xl ml-4" />
+              <MdPlace className="text-pink-300 text-5xl ml-4" />
             </span>
           </div>
-          <form className="w-full flex flex-col items-end" action="">
-            <div className="w-full flex flex-col items-end ">
+          <form className="w-full flex flex-col" action="">
+            <div className="w-full flex flex-col">
               {inputs.map((v, i) => {
                 return (
                   <div key={i} className=" w-full flex flex-col my-2">
-                    <h3>{v.value}</h3>
+                    <h3 className="text-left">{v.value}</h3>
                     <input
                       onChange={(e) => handleInput(e)}
                       type="text"
                       name={v.valueEnglish}
-                      placeholder="טקסט חופשי"
-                      className="text-right border-b placeholder:text-right py-2"
+                      placeholder="Write your answer"
+                      className="text-left border-b placeholder:text-left py-2"
                     />
                   </div>
                 );
@@ -72,7 +72,7 @@ export default function CheckOut1({ setOrder, order }) {
             <div className="w-full  flex justify-between items-center mt-12">
               <div>
                 <button className="border-b-2 border-black font-medium">
-                  מחק כתובת זו
+                Delete An Address
                 </button>
               </div>
               <button
@@ -90,12 +90,12 @@ export default function CheckOut1({ setOrder, order }) {
                       addres: { ...order.addres, allData: true },
                     });
                   } else {
-                    alert("מלא את כל השדות");
+                    alert("Fill in all the fields");
                   }
                 }}
-                className="bg-cyan-600 rounded-md text-white px-10 py-3"
+                className="bg-pink-100 rounded-md text-gray-400 px-10 py-3"
               >
-                שמור
+                Save
               </button>
             </div>
           </form>
