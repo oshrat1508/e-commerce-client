@@ -76,11 +76,11 @@ const MainNav = () => {
                   }}
                   className="w-[50px]  h-[50px] flex justify-center items-center  border-2 rounded-full  bg-white"
                 >
-                  {/* {user?.profileImg ? (
+                  {user?.profileImg ? (
                   <img className="cursor-pointer" src={user.profileImg} alt="" />
                 ) : (
                   <div className="text-2xl cursor-pointer">{user?.email[0]?.toUpperCase()}</div>
-                )} */}
+                )}
                 </div>
               </span>
             </li>
