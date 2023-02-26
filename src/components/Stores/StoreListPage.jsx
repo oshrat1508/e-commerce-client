@@ -4,35 +4,40 @@ import { allStores } from "../../api/userApi";
 import { useNavigate, useParams } from "react-router-dom";
 import StoreComp from "./StoreComp";
 import HeaderStore from ".//HeaderStore";
-import {getDepartment} from '../../api/Departments'
-import MainNav from "../Navs/MainNav";
-import MainPageFooter from "../Footers/MainPageFooter";
+import { getDepartment } from "../../api/Departments";
 import CartStore from "../Cart/CartStore";
 const StoreListPage = () => {
   let { depId } = useParams();
   let { depName } = useParams();
-  const navigate = useNavigate();
+  let [image,setImage] = useState("")
+  // const navigate = useNavigate();
   const [stores, setStores] = useState();
   const [department, setdepartment] = useState();
   const storesFu = async () => {
-    const  deps  = await getDepartment(depId);
+    const deps = await getDepartment(depId);
     setdepartment([deps.data]);
     const { data } = await allStores();
     const result = data.filter((store) => store.department === depName);
     setStores(result);
   };
- 
+
+  const findImage = async () => {
+    const deps = await getDepartment(depId);
+   console.log(deps);
+  };
+
   useEffect(() => {
-storesFu();
+    storesFu();
+    findImage()
+  
+    console.log(depName);
   }, [depId]);
 
-  
-  console.log(stores);
-  console.log(department);
+
   return (
     <div className="w-full flex flex-col justify-center items-center ">
       <div className="w-full">
-        <HeaderStore name={depName} />
+        <HeaderStore name={depName}  />
       </div>
       <div className="md:w-3/4 w-full flex md:flex-row flex-col justify-between ">
         <div className="md:w-1/3 w-full">
